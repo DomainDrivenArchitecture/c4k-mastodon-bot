@@ -1,7 +1,6 @@
 {:source-paths ["main/src/"
                 "main/test"]
- :dependencies [[aero "1.1.6"]]
  :builds       {:app {:target    :node-script
-                      :output-to "target/config-commons.js"
-                      :main      dda.config.commons.core/helloworld
+                      :output-to "target/k8s-mastodon-bot.js"
+                      :main      todo
                       :compiler-options {:optimizations :simple}}}}
