@@ -8,21 +8,11 @@
                  [clj-commons/clj-yaml "0.7.106"]]
   :source-paths ["src/main"]
   :resource-paths ["resources/main"]
+
   :repositories [["snapshots" :clojars]
                  ["releases" :clojars]]
   :deploy-repositories [["snapshots" :clojars]
                         ["releases" :clojars]]
-  :profiles {:dev {:source-paths ["integration/src"
-                                  "test/src"
-                                  "uberjar/src"]
-                   :resource-paths ["integration/resources"
-                                    "test/resources"]
-                   :dependencies
-                   [[org.clojure/test.check "0.10.0-alpha4"]
-                    [ch.qos.logback/logback-classic "1.3.0-alpha4"]
-                    [org.slf4j/jcl-over-slf4j "1.8.0-beta4"]
-                    [dda/data-test "0.1.1"]]}
-             :test {:test-paths ["src/test"]
-                    :resource-paths ["resources/test"]
-                    :dependencies [[dda/data-test "0.1.1"]]}}
-  :local-repo-classpath true)
+  :profiles {:test {:test-paths ["test/src"]
+                    :resource-paths ["test/resources"]
+                    :dependencies [[dda/data-test "0.1.1"]]}})

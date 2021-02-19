@@ -7,3 +7,6 @@ target/
 .nrepl-*
 
 .calva
+
+*.iml
+.idea/
