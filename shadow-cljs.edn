@@ -1,7 +1,8 @@
-{:source-paths ["main/src/"
-                "main/test"]
- :dependencies [[aero "1.1.6"]]
+{:source-paths ["src/main/"
+                "src/test"]
+ :dependencies [[aero "1.1.6"]
+                [cljsjs/js-yaml "4.0.0-0"]]
  :builds       {:app {:target    :node-script
-                      :output-to "target/config-commons.js"
-                      :main      dda.config.commons.core/helloworld
+                      :output-to "target/k8s-mastodon-bot.js"
+                      :main      dda.k8s-mastodon-bot.script/hallowelt
                       :compiler-options {:optimizations :simple}}}}
