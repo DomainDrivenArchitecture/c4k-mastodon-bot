@@ -6,13 +6,14 @@
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [aero "1.1.6"]
                  [clj-commons/clj-yaml "0.7.106"]]
-  :source-paths ["src/main"]
-  :resource-paths ["resources/main"]
+  :source-paths ["src/main/cljc"
+                 "src/main/clj"]
+  :resource-paths ["src/main/resources"]
 
   :repositories [["snapshots" :clojars]
                  ["releases" :clojars]]
   :deploy-repositories [["snapshots" :clojars]
                         ["releases" :clojars]]
-  :profiles {:test {:test-paths ["test/src"]
-                    :resource-paths ["test/resources"]
+  :profiles {:test {:test-paths ["src/test/cljc"]
+                    :resource-paths ["src/test/resources"]
                     :dependencies [[dda/data-test "0.1.1"]]}})

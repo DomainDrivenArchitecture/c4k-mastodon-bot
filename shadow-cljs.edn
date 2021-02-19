@@ -1,8 +1,13 @@
-{:source-paths ["src/main/"
-                "src/test"]
+{:source-paths ["src/main/cljc"
+                "src/main/cljs"
+                "src/test/cljc"]
  :dependencies [[aero "1.1.6"]
                 [cljsjs/js-yaml "4.0.0-0"]]
- :builds       {:app {:target    :node-script
+ :builds       {:test {:target    :node-test
+                       :output-to "target/node-tests.js"
+                       :autorun   true
+                       :repl-pprint  true}
+                :app {:target    :node-script
                       :output-to "target/k8s-mastodon-bot.js"
-                      :main      dda.k8s-mastodon-bot.script/hallowelt
+                      :main      dda.k8s-mastodon-bot.core/main
                       :compiler-options {:optimizations :simple}}}}
