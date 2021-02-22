@@ -1,0 +1,22 @@
+{
+  "name": "k8s-mastodon-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/domaindrivenarchitecture/k8s-mastodon-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/domaindrivenarchitecture/k8s-mastodon-bot/issues"
+  },
+  "homepage": "https://gitlab.com/domaindrivenarchitecture/k8s-mastodon-bot#readme",
+  "dependencies": {
+    "js-yaml": "^4.0.0"
+  }
+}

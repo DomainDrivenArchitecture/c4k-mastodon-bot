@@ -5,8 +5,11 @@ target/
 
 .shadow-cljs
 .nrepl-*
+package-lock.json
+node_modules/
 
 .calva
 
 *.iml
 .idea/
+

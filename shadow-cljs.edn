@@ -1,8 +1,7 @@
 {:source-paths ["src/main/cljc"
                 "src/main/cljs"
                 "src/test/cljc"]
- :dependencies [[aero "1.1.6"]
-                [cljsjs/js-yaml "4.0.0-0"]]
+ :dependencies [[aero "1.1.6"]]
  :builds       {:test {:target    :node-test
                        :output-to "target/node-tests.js"
                        :autorun   true
