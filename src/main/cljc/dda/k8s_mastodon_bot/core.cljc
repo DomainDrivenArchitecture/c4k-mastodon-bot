@@ -2,7 +2,7 @@
   (:require
    [clojure.spec.alpha :as s]
    [clojure.string :as cs]
-   ;;[dda.k8s-mastodon-bot.yaml :as yaml]
+   [dda.k8s-mastodon-bot.yaml :as yaml]
    ))
 
 (s/def ::options (s/* #{"-h"}))
@@ -17,5 +17,5 @@
       (do (s/explain ::args args)
           )
        (let [{:keys [options config-location]} parsed-args]
-         "hallowelt"
+         (yaml/from-string "hallo: welt")
        ))))
