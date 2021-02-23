@@ -1,21 +1,24 @@
 {
   "name": "k8s-mastodon-bot",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@gitlab.com/domaindrivenarchitecture/k8s-mastodon-bot.git"
-  },
+  "description": "Generate k8s yaml for a mastodon-bot deployment.",
   "author": "meissa GmbH",
+  "version": "0.1.0",
+  "homepage": "https://gitlab.com/domaindrivenarchitecture/k8s-mastodon-bot#readme",
+  "repository": "https://www.npmjs.com/package/k8s-mastodon-bot",
   "license": "APACHE2",
+  "main": "k8s-mastodon-bot.js",
+  "bin": {
+    "mastodon-bot": "./k8s-mastodon-bot.js"
+  },
+  "keywords": [
+    "cljs",
+    "mastodon-bot",
+    "k8s",
+    "deplyoment"
+  ],
   "bugs": {
     "url": "https://gitlab.com/domaindrivenarchitecture/k8s-mastodon-bot/issues"
-  },
-  "homepage": "https://gitlab.com/domaindrivenarchitecture/k8s-mastodon-bot#readme",
+  },  
   "dependencies": {
     "js-yaml": "^4.0.0"
   },
