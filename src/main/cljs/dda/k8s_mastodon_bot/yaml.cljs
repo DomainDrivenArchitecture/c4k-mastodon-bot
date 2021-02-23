@@ -1,8 +1,11 @@
 (ns dda.k8s-mastodon-bot.yaml
   (:require 
-   [aero.core :as aero]
    ["js-yaml" :as yaml]
    ))
 
 (defn from-string [input]
-  42)
+  (js->clj (yaml/load input)
+           :keywordize-keys true))
+
+(defn to-string [edn]
+  (yaml/dump (clj->js  edn)))
