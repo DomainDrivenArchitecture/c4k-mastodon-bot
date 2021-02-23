@@ -10,13 +10,17 @@
     "type": "git",
     "url": "git+ssh://git@gitlab.com/domaindrivenarchitecture/k8s-mastodon-bot.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "meissa GmbH",
+  "license": "APACHE2",
   "bugs": {
     "url": "https://gitlab.com/domaindrivenarchitecture/k8s-mastodon-bot/issues"
   },
   "homepage": "https://gitlab.com/domaindrivenarchitecture/k8s-mastodon-bot#readme",
   "dependencies": {
     "js-yaml": "^4.0.0"
+  },
+  "devDependencies": {
+    "shadow-cljs": "^2.11.18",
+    "source-map-support": "^0.5.19"
   }
 }
