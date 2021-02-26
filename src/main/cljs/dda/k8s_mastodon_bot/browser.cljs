@@ -5,25 +5,23 @@
 (defn config-from-document []
   (-> js/document
       (.getElementById "config")
-      (.-innerHTML)))
+      (.-value)))
 
 (defn auth-from-document []
   (-> js/document
       (.getElementById "auth")
-      (.-innerHTML)))
+      (.-value)))
 
 (defn render-to-document
   [input]
   (-> js/document
       (.getElementById "output")
-      (.-innerHTML)
+      (.-value)
       (set! input)))
-
-(defn generate []
-  (-> (dda.k8s-mastodon-bot.core/generate (config-from-document) (auth-from-document))
-      (render-to-document)))
 
 (defn init []
   (-> js/document
       (.getElementById "generate-button")
-      (.addEventListener "click" generate)))
+      (.addEventListener "click" 
+                         #(-> (core/generate (config-from-document) (auth-from-document))
+                              (render-to-document)))))
