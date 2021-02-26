@@ -18,4 +18,4 @@
                       :labels {:app.kubernetes.io/name "k8s-mastodon-bot"}}, 
            :data {:config.edn "some-config-value\n", 
                   :credentials.edn "some-credentials-value\n"}}
-          (cut/from-string (cut/load-resource "config.yml")))))
+          (cut/from-string (cut/load-resource "config.yaml")))))

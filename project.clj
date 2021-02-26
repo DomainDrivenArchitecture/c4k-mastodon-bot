@@ -9,7 +9,6 @@
   :source-paths ["src/main/cljc"
                  "src/main/clj"]
   :resource-paths ["src/main/resources"]
-
   :repositories [["snapshots" :clojars]
                  ["releases" :clojars]]
   :deploy-repositories [["snapshots" :clojars]
