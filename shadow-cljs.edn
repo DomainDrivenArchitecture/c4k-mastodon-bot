@@ -2,7 +2,8 @@
                 "src/main/cljs"
                 "src/main/resources"
                 "src/test/cljc"]
- :dependencies [[aero "1.1.6"]]
+ :dependencies [[aero "1.1.6"]
+                [expound "0.8.4"]]
  :builds       {:test {:target    :node-test
                        :output-to "target/node-tests.js"
                        :autorun   true
