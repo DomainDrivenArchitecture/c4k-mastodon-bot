@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mastodon-bot
+  labels:
+    app.kubernetes.io/name: k8s-mastodon-bot
+data:
+  config.edn: |
+    some-config-value
+  credentials.edn: |
+    some-credentials-value

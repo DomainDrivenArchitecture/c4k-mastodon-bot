@@ -1,5 +1,6 @@
 {:source-paths ["src/main/cljc"
                 "src/main/cljs"
+                "src/main/resources"
                 "src/test/cljc"]
  :dependencies [[aero "1.1.6"]]
  :builds       {:test {:target    :node-test

@@ -5,45 +5,28 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: k8s-mastodon-bot
+      app.kubernetes.io/name: k8s-mastodon-bot
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: k8s-mastodon-bot
+        app.kubernetes.io/name: k8s-mastodon-bot
     spec:
       containers:
-        - image: postgres
-          name: k8s-mastodon-bot
+        - image: mastodon-bot
+          name: mastodon-bot
           env:
-            - name: POSTGRES_USER_FILE
-              value: /var/run/secrets/postgres-secrets/postgres-user
-            - name: POSTGRES_DB_FILE
-              value: /var/run/secrets/postgres-secrets/postgres-db
-            - name: POSTGRES_PASSWORD_FILE
-              value: /var/run/secrets/postgres-secrets/postgres-password
-          ports:
-            - containerPort: 5432
-              name: k8s-mastodon-bot
+            - name: MASTODON_BOT_CREDENTIALS
+              value: /app/credentials.edn
           cmd:
           volumeMounts:
-            - name: k8s-mastodon-bot
-              mountPath: /var/lib/k8s-mastodon-bot/data
-            - name: postgres-secret-volume
-              mountPath: /var/run/secrets/postgres-secrets
+            - name: mastodon-bot
+              mountPath: /app/config.edn
+              subPath: config.conf
               readOnly: true
-            - name: postgres-config-volume
-              mountPath: /etc/k8s-mastodon-bot/k8s-mastodon-bot.conf
-              subPath: k8s-mastodon-bot.conf
+            - name: mastodon-bot
+              mountPath: /app/credentials.edn
+              subPath: credentials.conf
               readOnly: true
-      volumes:
-        - name: k8s-mastodon-bot
-          persistentVolumeClaim:
-            claimName: postgres-claim
-        - name: postgres-secret-volume
-          secret:
-            secretName: postgres-secret
-        - name: postgres-config-volume
-          configMap:
-            name: postgres-config
+      
