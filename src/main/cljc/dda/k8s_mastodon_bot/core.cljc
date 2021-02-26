@@ -22,6 +22,9 @@
    (assoc-in [ :data :credentials.edn] (str my-auth))
    ))
 
+(defn generate [my-config my-auth]
+  (yaml/to-string (generate-config my-config my-auth)))
+
 (def usage
   "usage:
   
@@ -37,4 +40,4 @@
            (some #(= "-h" %) options)
            (print usage)
            :default
-           (yaml/to-string (generate-config config auth)))))))
+           (generate config auth))))))

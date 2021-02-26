@@ -7,6 +7,7 @@ target/
 .nrepl-*
 package-lock.json
 node_modules/
+public/js/
 
 .calva
 

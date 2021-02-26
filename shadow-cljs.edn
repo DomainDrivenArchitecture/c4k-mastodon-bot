@@ -4,11 +4,15 @@
                 "src/test/cljc"]
  :dependencies [[aero "1.1.6"]
                 [expound "0.8.4"]]
- :builds       {:test {:target    :node-test
-                       :output-to "target/node-tests.js"
-                       :autorun   true
-                       :repl-pprint  true}
+ :dev-http {8080 "public"}
+ :builds       {:frontend {:target :browser
+                           :modules {:main {:init-fn dda.k8s-mastodon-bot.browser/generate}}
+                           :release {}}
                 :app {:target    :node-script
                       :output-to "target/k8s-mastodon-bot.js"
                       :main      dda.k8s-mastodon-bot.core/main
-                      :compiler-options {:optimizations :simple}}}}
+                      :compiler-options {:optimizations :simple}}
+                :test {:target    :node-test
+                       :output-to "target/node-tests.js"
+                       :autorun   true
+                       :repl-pprint  true}}}
