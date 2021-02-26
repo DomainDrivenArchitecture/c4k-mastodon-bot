@@ -26,4 +26,4 @@
 (defn init []
   (-> js/document
       (.getElementById "generate-button")
-      (.onclick generate)))
+      (.addEventListener "click" generate)))
