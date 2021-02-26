@@ -6,7 +6,7 @@
                 [expound "0.8.4"]]
  :dev-http {8080 "public"}
  :builds       {:frontend {:target :browser
-                           :modules {:main {:init-fn dda.k8s-mastodon-bot.browser/generate}}
+                           :modules {:main {:init-fn dda.k8s-mastodon-bot.browser/init}}
                            :release {}}
                 :app {:target    :node-script
                       :output-to "target/k8s-mastodon-bot.js"

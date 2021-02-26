@@ -22,3 +22,8 @@
 (defn generate []
   (-> (dda.k8s-mastodon-bot.core/generate (config-from-document) (auth-from-document))
       (render-to-document)))
+
+(defn init []
+  (-> js/document
+      (.getElementById "generate-button")
+      (.onclick generate)))
