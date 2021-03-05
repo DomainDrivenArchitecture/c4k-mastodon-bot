@@ -22,7 +22,14 @@
    (assoc-in [ :data :credentials.edn] (str my-auth))
    ))
 
+(defn generate-deployment []
+  (->
+   (yaml/from-string (yaml/load-resource "deployment.yaml"))))
+
 (defn generate [my-config my-auth]
-  (yaml/to-string (generate-config my-config my-auth)))
+  (cs/join "\n" 
+           [(yaml/to-string (generate-config my-config my-auth))
+            "---"
+            (yaml/to-string (generate-deployment))]))
 
 

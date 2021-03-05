@@ -6,8 +6,12 @@
 
 (def config (rc/inline "config.yaml"))
 
+(def deployment (rc/inline "deployment.yaml"))
+
 (defn load-resource [resource-name]
-  config)
+  (case resource-name
+    "config.yaml" config
+    "deployment.yaml" deployment))
 
 (defn from-string [input]
   (js->clj (yaml/load input)
