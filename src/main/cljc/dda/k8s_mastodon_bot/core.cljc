@@ -25,19 +25,4 @@
 (defn generate [my-config my-auth]
   (yaml/to-string (generate-config my-config my-auth)))
 
-(def usage
-  "usage:
-  
-  k8s-mastodon-bot {your configuraton} {your authorization}")
 
-(defn main [& args]
-  (let [parsed-args (s/conform ::args args)]
-     (if (= ::s/invalid parsed-args)
-      (do (s/explain ::args args)
-          (print (str "Bad commandline arguments\n" usage)))
-       (let [{:keys [options config auth]} parsed-args]
-         (cond
-           (some #(= "-h" %) options)
-           (print usage)
-           :default
-           (generate config auth))))))
