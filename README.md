@@ -1,6 +1,6 @@
-# k8s-mastodon-bot
-
 {::options parse_block_html="true" /}
+
+# k8s-mastodon-bot
 
 <div class="container">
     <label for="config">Your config.edn:</label>
@@ -58,6 +58,3 @@
 
   </div>
   <script src="js/main.js"></script>
-
-
-{::options parse_block_html="false" /}
