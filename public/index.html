@@ -4,12 +4,15 @@
 <head>
   <meta charset="utf-8" />
   <title>k8s-mastodon-bot</title>
+  <link href="https://domaindrivenarchitecture.org/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://domaindrivenarchitecture.org/css/fonts/fontawesome/fontawesome.css" rel="stylesheet" type="text/css" />	          
+  <link href="https://domaindrivenarchitecture.org/css/custom.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-  <div class="container">
-    <label for="config">Your config.edn:</label>
-    <textarea name="config" id="config" rows="40" cols="150">
+  <div class="container jumbotron">
+    <label for="config" class="form-label">Your config.edn:</label>
+    <textarea name="config" id="config" class="form-control" rows="15">
 {:transform [{:source {:source-type :twitter
                         ;; optional, defaults to false
                         :include-replies? false
@@ -37,8 +40,9 @@
                       :signature "#newsbot"}
                     }]}
       </textarea><br><br>
-    <label for="auth">Your auth.edn:</label>
-    <textarea name="auth" id="auth" rows="40" cols="150">
+
+    <label for="auth" class="form-label">Your auth.edn:</label>
+    <textarea name="auth" id="auth" class="form-control" rows="15">
 {:auth {;; add Twitter config to mirror Twitter accounts
         :twitter {:consumer_key "XXXX"
                   :consumer_secret "XXXX"
@@ -54,13 +58,14 @@
                 :token "XXXX"
                 :token_secret "XXXX"}}}
       </textarea><br><br>
-    <button type="button" id="generate-button">Generate k8s yaml</button>
-  </div>
-  <div id="k8s-mastodon-bot-output">
-    <label for="output">Your k8s deployment.yaml:</label>
-    <textarea name="output" id="output" rows="40" cols="150">
+    <button type="button" id="generate-button" class="btn btn-primary">
+      Generate k8s yaml
+    </button><br><br>
+    <div id="k8s-mastodon-bot-output">
+      <label for="output" class="form-label">Your k8s deployment.yaml:</label>
+      <textarea name="output" id="output" class="form-control" rows="15">
       </textarea>
-
+    </div>
   </div>
   <script src="js/main.js"></script>
 </body>
