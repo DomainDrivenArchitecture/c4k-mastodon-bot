@@ -1,7 +1,7 @@
 (ns dda.k8s-mastodon-bot.uberjar
   (:require
    [clojure.spec.alpha :as s]
-   [dda.k8s-mastodon-bot.core :as core])
+   [dda.k8s-mastodon-bot.core :as core]))
 
 
 (def usage
@@ -19,4 +19,4 @@
           (some #(= "-h" %) options)
           (print usage)
           :default
-          (generate config auth))))))
+          (core/generate config auth))))))
