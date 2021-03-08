@@ -17,9 +17,7 @@
   :profiles {:test {:test-paths ["src/test/cljc"]
                     :resource-paths ["src/test/resources"]
                     :dependencies [[dda/data-test "0.1.1"]]}
-             :uberjar {:source-paths ["src/main/clj"]
-                       :resource-paths ["src/main/resources"]
-                       :aot :all
+             :uberjar {:aot :all
                        :main dda.k8s-mastodon-bot.uberjar
                        :uberjar-name "k8s-mastodon-bot-standalone.jar"
                        :dependencies [[org.clojure/tools.cli "1.0.194"]

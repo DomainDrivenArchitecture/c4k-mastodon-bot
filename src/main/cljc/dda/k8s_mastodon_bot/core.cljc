@@ -6,7 +6,7 @@
    [dda.k8s-mastodon-bot.yaml :as yaml]
    ))
 
-(set! s/*explain-out* expound/printer)
+;(set! s/*explain-out* expound/printer)
 
 (s/def ::options (s/* #{"-h"}))
 (s/def ::config map?)

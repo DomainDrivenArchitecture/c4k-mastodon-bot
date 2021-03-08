@@ -13,4 +13,5 @@ public/js/
 
 *.iml
 .idea/
+.lein-repl-history
 
