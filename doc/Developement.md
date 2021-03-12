@@ -14,6 +14,12 @@ npm install --ignore-scripts
 npx shadow-cljs compile test
 ```
 
+## create frontend script
+
+```
+npx shadow-cljs release frontend
+```
+
 ## install kubectl
 
 ```

@@ -3,11 +3,14 @@
                 "src/main/resources"
                 "src/test/cljc"]
  :dependencies [[aero "1.1.6"]
-                [expound "0.8.4"]]
+                [orchestra "2021.01.01-1"]
+                [expound "0.8.9"]
+                [dda/mastodon-bot "1.10.10-SNAPSHOT"]]
  :dev-http {8080 "public"}
  :builds       {:frontend {:target :browser
                            :modules {:main {:init-fn dda.k8s-mastodon-bot.browser/init}}
-                           :release {}}
+                           :release {}
+                           :compiler-options {:optimizations :advanced}}
                 :app {:target    :node-script
                       :output-to "target/k8s-mastodon-bot.js"
                       :main      dda.k8s-mastodon-bot.core/main
