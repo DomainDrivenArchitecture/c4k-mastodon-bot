@@ -1,17 +1,22 @@
+# pybuilder
 .pybuilder/
 __pycache__/
 
+# lein
 target/
+.lein-repl-history
+.lein-failures
 
+# cljs
 .shadow-cljs
 .nrepl-*
 package-lock.json
 node_modules/
 public/js/
 
+# ide
 .calva
 
 *.iml
 .idea/
-.lein-repl-history
 

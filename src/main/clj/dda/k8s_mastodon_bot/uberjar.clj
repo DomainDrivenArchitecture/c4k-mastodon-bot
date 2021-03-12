@@ -2,9 +2,14 @@
   (:gen-class)
   (:require
    [clojure.spec.alpha :as s]
+   [expound.alpha :as expound]
    [clojure.java.io :as io]
    [dda.k8s-mastodon-bot.core :as core]))
 
+(alter-var-root #'s/*explain-out* (constantly expound/printer))
+
+(s/def ::options (s/* #{"-h"}))
+(s/def ::args (s/cat :options ::options))
 
 (def usage
   "usage:
