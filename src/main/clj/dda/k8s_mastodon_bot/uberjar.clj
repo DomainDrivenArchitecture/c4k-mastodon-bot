@@ -2,26 +2,19 @@
   (:gen-class)
   (:require
    [clojure.spec.alpha :as s]
+   [clojure.java.io :as io]
    [dda.k8s-mastodon-bot.core :as core]))
 
 
 (def usage
   "usage:
   
-  k8s-mastodon-bot '{your configuraton}' '{your authorization}'")
+  k8s-mastodon-bot {your configuraton file} {your authorization file}")
 
-; Checks if a string validates a given spec after the string is transformed to Clojure data structure by clojure.edn/read-string.
-(defn spec-string? [spec]
-  (fn [str]
-    (s/and
-     (string? str)
-     (s/valid? spec (clojure.edn/read-string str)))))
-
-(s/def ::config-map-str (spec-string? ::core/config))
-(s/def ::auth-map-str (spec-string? ::core/auth))
+(s/def ::filename string?)
 (s/def ::cmd-args (s/cat :options ::core/options
-                         :config ::config-map-str
-                         :auth ::config-map-str))
+                         :config ::filename
+                         :auth ::filename))
 
 (defn invalid-args-msg [spec args]
   (do (s/explain spec args)
@@ -32,8 +25,8 @@
     (if (= ::s/invalid parsed-args-cmd)
       (invalid-args-msg ::cmd-args cmd-args)
       (let [{:keys [options config auth]} parsed-args-cmd
-            config-map (clojure.edn/read-string config)
-            auth-map (clojure.edn/read-string auth)]
+            config-map (slurp config)
+            auth-map (slurp auth)]
           (cond
             (some #(= "-h" %) options)
             (println usage)
