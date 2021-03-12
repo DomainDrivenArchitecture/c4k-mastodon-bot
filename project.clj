@@ -5,7 +5,7 @@
             :url "https://www.apache.org/licenses/LICENSE-2.0.html"}
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [aero "1.1.6"]
-                 [expound "0.8.4"]
+                 [expound "0.8.9"]
                  [clj-commons/clj-yaml "0.7.106"]]
   :source-paths ["src/main/cljc"
                  "src/main/clj"]
