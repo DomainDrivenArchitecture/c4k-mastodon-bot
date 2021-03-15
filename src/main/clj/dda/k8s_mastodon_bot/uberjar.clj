@@ -2,24 +2,25 @@
   (:gen-class)
   (:require
    [clojure.spec.alpha :as s]
+   [clojure.string :as cs]
    [expound.alpha :as expound]
    [clojure.java.io :as io]
    [dda.k8s-mastodon-bot.core :as core]))
 
 (alter-var-root #'s/*explain-out* (constantly expound/printer))
 
-(s/def ::options (s/* #{"-h"}))
-(s/def ::args (s/cat :options ::options))
-
 (def usage
   "usage:
   
   k8s-mastodon-bot {your configuraton file} {your authorization file}")
 
-(s/def ::filename string?)
+(s/def ::options (s/* #{"-h"}))
+(s/def ::filename (s/and string?
+                              #(not (cs/starts-with? % "-"))))
 (s/def ::cmd-args (s/cat :options ::options
-                         :config ::filename
-                         :auth ::filename))
+                         :args (s/?
+                                (s/cat :config ::filename
+                                       :auth ::filename))))
 
 (defn invalid-args-msg [spec args]
   (do (s/explain spec args)
@@ -29,11 +30,11 @@
   (let [parsed-args-cmd (s/conform ::cmd-args cmd-args)]
     (if (= ::s/invalid parsed-args-cmd)
       (invalid-args-msg ::cmd-args cmd-args)
-      (let [{:keys [options config auth]} parsed-args-cmd
-            config-map (slurp config)
-            auth-map (slurp auth)]
+      (let [{:keys [options args]} parsed-args-cmd
+            config-location (:config args)
+            auth-location (:auth args)]
           (cond
             (some #(= "-h" %) options)
             (println usage)
             :default
-            (println (core/generate config-map auth-map)))))))
+            (println (core/generate (slurp config-location) (slurp auth-location))))))))
