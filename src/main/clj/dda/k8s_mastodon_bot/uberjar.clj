@@ -17,7 +17,7 @@
   k8s-mastodon-bot {your configuraton file} {your authorization file}")
 
 (s/def ::filename string?)
-(s/def ::cmd-args (s/cat :options ::core/options
+(s/def ::cmd-args (s/cat :options ::options
                          :config ::filename
                          :auth ::filename))
 
