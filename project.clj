@@ -9,6 +9,7 @@
                  [expound "0.8.9"]
                  [clj-commons/clj-yaml "0.7.106"]
                  [dda/mastodon-bot "1.10.10-SNAPSHOT"]]
+  :target-path "target/%s/"
   :source-paths ["src/main/cljc"
                  "src/main/clj"]
   :resource-paths ["src/main/resources"]
