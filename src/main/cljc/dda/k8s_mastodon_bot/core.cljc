@@ -1,10 +1,10 @@
 (ns dda.k8s-mastodon-bot.core
   (:require
    [clojure.string :as cs]
-   [orchestra.core :refer-macros [defn-spec]]
-   [mastodon-bot.core-domain :as cd]
-   [dda.k8s-mastodon-bot.yaml :as yaml]
-   ))
+   #?(:clj [orchestra.core :refer [defn-spec]]
+      :cljs [orchestra.core :refer-macros [defn-spec]])
+      [mastodon-bot.core-domain :as cd]
+      [dda.k8s-mastodon-bot.yaml :as yaml]))
 
 (defn generate-config [my-config my-auth]
   (->
