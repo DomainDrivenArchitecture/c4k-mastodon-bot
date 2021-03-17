@@ -2,7 +2,7 @@
   "name": "k8s-mastodon-bot",
   "description": "Generate k8s yaml for a mastodon-bot deployment.",
   "author": "meissa GmbH",
-  "version": "0.1.2-SNAPSHOT",
+  "version": "0.1.2",
   "homepage": "https://gitlab.com/domaindrivenarchitecture/k8s-mastodon-bot#readme",
   "repository": "https://www.npmjs.com/package/k8s-mastodon-bot",
   "license": "APACHE2",
