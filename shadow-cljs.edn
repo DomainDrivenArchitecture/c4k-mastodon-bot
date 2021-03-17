@@ -12,7 +12,7 @@
                            :release {}
                            :compiler-options {:optimizations :advanced}}
                 :app {:target    :node-script
-                      :output-to "target/k8s-mastodon-bot.js"
+                      :output-to "target/npm-build/k8s-mastodon-bot.js"
                       :main      dda.k8s-mastodon-bot.core/main
                       :compiler-options {:optimizations :simple}}
                 :test {:target    :node-test
