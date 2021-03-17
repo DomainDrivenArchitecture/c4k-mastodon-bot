@@ -8,7 +8,7 @@
                  [orchestra "2021.01.01-1"]
                  [expound "0.8.9"]
                  [clj-commons/clj-yaml "0.7.106"]
-                 [dda/mastodon-bot "1.10.10-SNAPSHOT"]]
+                 [dda/mastodon-bot "1.10.11"]]
   :target-path "target/%s/"
   :source-paths ["src/main/cljc"
                  "src/main/clj"]
