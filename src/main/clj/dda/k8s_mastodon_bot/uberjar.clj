@@ -3,11 +3,8 @@
   (:require
    [clojure.spec.alpha :as s]
    [clojure.string :as cs]
-   [expound.alpha :as expound]
    [clojure.java.io :as io]
    [dda.k8s-mastodon-bot.core :as core]))
-
-(alter-var-root #'s/*explain-out* (constantly expound/printer))
 
 (def usage
   "usage:

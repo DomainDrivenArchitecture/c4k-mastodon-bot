@@ -99,7 +99,6 @@ release:
   rules:
     - if: '$CI_COMMIT_TAG != null'
   variables:
-    CI_COMMIT_TAG: "0.1.1"
     PACKAGE_REGISTRY_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic"
     UBERJAR_URL: "${PACKAGE_REGISTRY_URL}/k8s-mastodon-bot-standalone/${$CI_COMMIT_TAG}/k8s-mastodon-bot-standalone.jar"
     FRONTEND_URL: "${PACKAGE_REGISTRY_URL}/k8s-mastodon-bot/${$CI_COMMIT_TAG}/k8s-mastodon-bot.js"
