@@ -37,9 +37,9 @@ test-clj:
   script:
     - lein test
 
-report:
+report-frontend:
   <<: *cljs
-  stage: build_and_test
+  stage: package
   script:
     - mkdir -p target
     - shadow-cljs run shadow.cljs.build-report frontend target/build-report.html
@@ -81,15 +81,6 @@ sast:
     - mkdir -p builds && cp -r target/ builds/
 include:
   - template: Security/SAST.gitlab-ci.yml
-
-upload-cljs-prerelease:
-  <<: *cljs
-  stage: upload
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "master" && $CI_COMMIT_TAG == null'
-  script:
-    - sed -i 's|SNAPSHOT|'$(date +"%Y%m%d%H%M%S")'|' ./target/npm-build/package.json
-    - npm publish ./target/npm-build --access public
 
 upload-clj-prerelease:
   <<: *clj
