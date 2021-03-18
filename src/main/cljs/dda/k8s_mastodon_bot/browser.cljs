@@ -1,6 +1,7 @@
 (ns dda.k8s-mastodon-bot.browser
   (:require
-   [clojure.spec.alpha :as s]
+   [clojure.tools.reader.edn :as edn]
+   [expound.alpha :as expound]
    [dda.k8s-mastodon-bot.core :as core]))
 
 (defn config-from-document []
@@ -20,16 +21,21 @@
       (.-value)
       (set! input)))
 
+(defn expound-config
+  [config]
+  (expound/expound ::core/config config))
+
 (defn init []
   (-> js/document
       (.getElementById "generate-button")
       (.addEventListener "click" 
                          #(-> (core/generate (config-from-document) (auth-from-document))
-                              (render-output-to-document)
-                              (print "1"))))
+                              (render-output-to-document))))
   (-> js/document
       (.getElementById "config")
       (.addEventListener "blur"
-                         #(-> (s/explain ::core/config (config-from-document))
+                         #(-> (config-from-document)
+                              (edn/read-string)
+                              (expound-config)
                               (print))))
-  )
+)

@@ -26,8 +26,8 @@
    (yaml/from-string (yaml/load-resource "deployment.yaml"))))
 
 (defn-spec generate any?
-  [my-config ::config
-   my-auth cd/auth?] 
+  [my-config string?
+   my-auth string?] 
   (cs/join "\n" 
            [(yaml/to-string (generate-config my-config my-auth))
             "---"
