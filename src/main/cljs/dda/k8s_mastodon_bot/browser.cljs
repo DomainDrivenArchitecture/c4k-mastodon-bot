@@ -1,6 +1,7 @@
 (ns dda.k8s-mastodon-bot.browser
   (:require
    [clojure.string :as st]
+   [clojure.spec.alpha :as s]
    [clojure.tools.reader.edn :as edn]
    [expound.alpha :as expound]
    [dda.k8s-mastodon-bot.core :as core]))
@@ -40,13 +41,13 @@
       (.-value)
       (set! input)))
 
-(defn expound-config
-  [config]
-  (st/replace
-   (expound/expound-str ::core/config config  {:print-specs? false})
-   #"\n" "<br>"))
-
-
+(defn validate-config! []
+  (let [config (config-from-document)]
+    (when-not (s/valid? ::core/config config)
+      (-> config
+          (edn/read-string)
+          #(expound/expound-str ::core/config %  {:print-specs? false})
+          (render-validation-result-to-config)))))
 
 (defn render-validation-result-to-config
   [validation-result]
@@ -62,14 +63,9 @@
 (defn init []
   (-> js/document
       (.getElementById "generate-button")
-      (.addEventListener "click" 
+      (.addEventListener "click"
                          #(-> (core/generate (config-from-document) (auth-from-document))
                               (set-output!))))
   (-> (config)
       (.addEventListener "blur"
-                         #(-> (config-from-document)
-                              (edn/read-string)
-                              (expound-config)
-                              (print-debug)
-                              (render-validation-result-to-config))))
-)
+                         #(validate-config!))))
