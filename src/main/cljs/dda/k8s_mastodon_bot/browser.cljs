@@ -82,8 +82,11 @@
   (-> js/document
       (.getElementById "generate-button")
       (.addEventListener "click"
-                         #(-> (core/generate (config-from-document) (auth-from-document))
-                              (set-output!))))
+                         #(do (validate-config!)
+                              (validate-auth!)
+                              (set-validated!)
+                              (-> (core/generate (config-from-document) (auth-from-document))
+                                  (set-output!)))))
   (-> (config)
       (.addEventListener "blur"
                          #(do (validate-config!)
