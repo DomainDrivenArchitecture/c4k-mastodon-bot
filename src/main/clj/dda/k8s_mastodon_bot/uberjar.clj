@@ -5,7 +5,6 @@
    [clojure.string :as cs]
    [clojure.tools.reader.edn :as edn]
    [expound.alpha :as expound]
-   [clojure.java.io :as io]
    [dda.k8s-mastodon-bot.core :as core]))
 
 (def usage
@@ -25,9 +24,10 @@
   [config]
   (expound/expound ::core/config config))
 
-(defn invalid-args-msg [spec args]
-  (do (s/explain spec args)
-      (println (str "Bad commandline arguments\n" usage))))
+(defn invalid-args-msg 
+  [spec args]
+  (s/explain spec args)
+  (println (str "Bad commandline arguments\n" usage)))
 
 (defn -main [& cmd-args]
   (let [parsed-args-cmd (s/conform ::cmd-args cmd-args)]
