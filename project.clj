@@ -4,6 +4,7 @@
   :license {:name "Apache License, Version 2.0"
             :url "https://www.apache.org/licenses/LICENSE-2.0.html"}
   :dependencies [[org.clojure/clojure "1.10.3"]
+                 [org.clojure/tools.reader "1.3.4"]
                  [aero "1.1.6"]
                  [orchestra "2021.01.01-1"]
                  [expound "0.8.9"]
