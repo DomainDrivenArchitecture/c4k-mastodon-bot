@@ -2,15 +2,10 @@
   (:require
    [clojure.string :as cs]
    [clojure.spec.alpha :as s]
-   [clojure.spec.test.alpha :as st]
    #?(:clj [orchestra.core :refer [defn-spec]]
       :cljs [orchestra.core :refer-macros [defn-spec]])
-   [expound.alpha :as expound]
    [mastodon-bot.core-domain :as cd]
    [dda.k8s-mastodon-bot.yaml :as yaml]))
-
-#?(:clj (alter-var-root #'s/*explain-out* (constantly expound/printer))
-   :cljs (set! s/*explain-out* expound/printer))
 
 (def config? cd/config?)
 
@@ -34,5 +29,3 @@
            [(yaml/to-string (generate-config my-config my-auth))
             "---"
             (yaml/to-string (generate-deployment))]))
-
-(st/instrument 'dda.k8s-mastodon-bot.core)
