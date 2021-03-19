@@ -34,18 +34,23 @@
     (if (= ::s/invalid parsed-args-cmd)
       (invalid-args-msg ::cmd-args cmd-args)
       (let [{:keys [options args]} parsed-args-cmd
-            config (slurp (:config args))
-            auth (slurp (:auth args))]
+            {:keys [config auth]} args]
           (cond
             (some #(= "-h" %) options)
             (println usage)
             :default
-            (let [config-edn (edn/read-string config)
-                  auth-edn (edn/read-string auth)
-                  config-valid? (= ::s/invalid (s/conform ::core/config config-edn))
-                  auth-valid? (= ::s/invalid (s/conform ::core/config auth-edn))]
+            (let [config-str (slurp (:config args))
+                  auth-str (slurp (:auth args))
+                  config-edn (edn/read-string config-str)
+                  auth-edn (edn/read-string auth-str)
+                  config-valid? (s/valid? core/config? config-edn)
+                  auth-valid? (s/valid? core/auth? auth-edn)]
               (if (and config-valid? auth-valid?)
-                (println (core/generate config auth))
+                (println (core/generate config-str auth-str))
                 (do
-                  (when (not config-valid?) (expound-config config-edn))
-                  (when (not auth-valid?) (expound-config auth-edn))))))))))
+                  (when (not config-valid?) 
+                    (println 
+                     (expound/expound-str core/config? config-edn {:print-specs? false})))
+                  (when (not auth-valid?) 
+                    (println 
+                     (expound/expound-str core/auth? auth-edn {:print-specs? false})))))))))))
