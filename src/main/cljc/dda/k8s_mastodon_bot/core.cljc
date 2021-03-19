@@ -12,7 +12,9 @@
 #?(:clj (alter-var-root #'s/*explain-out* (constantly expound/printer))
    :cljs (set! s/*explain-out* expound/printer))
 
-(s/def ::config cd/config?)
+(def config? cd/config?)
+
+(def auth? (s/keys :req-un [::cd/auth]))
 
 (defn generate-config [my-config my-auth]
   (->

@@ -17,13 +17,6 @@
   (-> js/document
       (.getElementById "auth")))
 
-(defn set-config-validation! [input]
-  (print-debug input)
-  (-> js/document
-      (.getElementById "config-validation")
-      (.-innerHTML)
-      (set! input)))
-
 (defn form []
   (-> js/document
       (.getElementById "form")))
@@ -45,22 +38,21 @@
 
 (defn set-config-validation-result!
   [validation-result]
-  (print-debug validation-result)
-  (set-config-validation! validation-result)
+  (-> js/document
+      (.getElementById "config-validation")
+      (.-innerHTML)
+      (set! validation-result))
   (-> (config)
       (.setCustomValidity validation-result))
-  (-> (form)
-      (.-classList)
-      (.add "was-validated"))
   validation-result)
 
 (defn validate-config! []
   (let [config-str (config-from-document)
         config-map (edn/read-string config-str)]
-    (if (s/valid? ::core/config config-map)
+    (if (s/valid? core/config? config-map)
       (set-config-validation-result! "")
       (set-config-validation-result!
-       (expound/expound-str ::core/config config-map {:print-specs? false})))))
+       (expound/expound-str core/config? config-map {:print-specs? false})))))
 
 (defn set-validated! []
   (-> (form)
@@ -80,9 +72,11 @@
 (defn validate-auth! []
   (let [auth-str (auth-from-document)
         auth-map (edn/read-string auth-str)]
-    (when-not (s/valid? ::core/auth auth-map)
+    (print-debug (s/valid? core/auth? auth-map))
+    (if (s/valid? core/auth? auth-map)
+      (set-auth-validation-result! "")
       (set-auth-validation-result!
-       (expound/expound-str ::core/auth auth-map {:print-specs? false})))))
+       (expound/expound-str core/auth? auth-map {:print-specs? false})))))
 
 (defn init []
   (-> js/document
@@ -93,4 +87,10 @@
   (-> (config)
       (.addEventListener "blur"
                          #(do (validate-config!)
+                              (validate-auth!)
+                              (set-validated!))))
+  (-> (auth)
+      (.addEventListener "blur"
+                         #(do (validate-config!)
+                              (validate-auth!)
                               (set-validated!)))))
