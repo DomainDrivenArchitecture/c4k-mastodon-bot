@@ -21,6 +21,7 @@
   :profiles {:test {:test-paths ["src/test/cljc"]
                     :resource-paths ["src/test/resources"]
                     :dependencies [[dda/data-test "0.1.1"]]}
+             :dev {:plugins [[lein-shell "0.5.0"]]}
              :uberjar {:aot :all
                        :main dda.k8s-mastodon-bot.uberjar
                        :uberjar-name "k8s-mastodon-bot-standalone.jar"
@@ -32,4 +33,12 @@
                   ["vcs" "commit"]
                   ["vcs" "tag"]
                   ["deploy"]
-                  ["change" "version" "leiningen.release/bump-version"]])
+                  ["change" "version" "leiningen.release/bump-version"]]
+  :aliases {"native" ["shell"
+                      "native-image"
+                      "--report-unsupported-elements-at-runtime"
+                      "--initialize-at-build-time"
+                      "-jar" "target/uberjar/k8s-mastodon-bot-standalone.jar"
+                      "-H:IncludeResources=src/main/resources/.*"
+                      "-H:Log=registerResource"
+                      "-H:Name=target/graalvm/${:name}"]})
