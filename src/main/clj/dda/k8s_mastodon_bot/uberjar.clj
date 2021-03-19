@@ -3,6 +3,8 @@
   (:require
    [clojure.spec.alpha :as s]
    [clojure.string :as cs]
+   [clojure.tools.reader.edn :as edn]
+   [expound.alpha :as expound]
    [clojure.java.io :as io]
    [dda.k8s-mastodon-bot.core :as core]))
 
@@ -19,6 +21,10 @@
                                 (s/cat :config ::filename
                                        :auth ::filename))))
 
+(defn expound-config
+  [config]
+  (expound/expound ::core/config config))
+
 (defn invalid-args-msg [spec args]
   (do (s/explain spec args)
       (println (str "Bad commandline arguments\n" usage))))
@@ -28,10 +34,18 @@
     (if (= ::s/invalid parsed-args-cmd)
       (invalid-args-msg ::cmd-args cmd-args)
       (let [{:keys [options args]} parsed-args-cmd
-            config-location (:config args)
-            auth-location (:auth args)]
+            config (slurp (:config args))
+            auth (slurp (:auth args))]
           (cond
             (some #(= "-h" %) options)
             (println usage)
             :default
-            (println (core/generate (slurp config-location) (slurp auth-location))))))))
+            (let [config-edn (edn/read-string config)
+                  auth-edn (edn/read-string auth)
+                  config-valid? (= ::s/invalid (s/conform ::core/config config-edn))
+                  auth-valid? (= ::s/invalid (s/conform ::core/config auth-edn))]
+              (if (and config-valid? auth-valid?)
+                (println (core/generate config auth))
+                (do
+                  (when (not config-valid?) (expound-config config-edn))
+                  (when (not auth-valid?) (expound-config auth-edn))))))))))
