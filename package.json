@@ -8,17 +8,18 @@
   "license": "APACHE2",
   "main": "k8s-mastodon-bot.js",
   "bin": {
-    "mastodon-bot": "./k8s-mastodon-bot.js"
+    "k8s-mastodon-bot": "./k8s-mastodon-bot.js"
   },
   "keywords": [
     "cljs",
     "mastodon-bot",
     "k8s",
-    "deplyoment"
+    "deplyoment",
+    "yaml"
   ],
   "bugs": {
     "url": "https://gitlab.com/domaindrivenarchitecture/k8s-mastodon-bot/issues"
-  },  
+  },
   "dependencies": {
     "js-yaml": "^4.0.0"
   },
