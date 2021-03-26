@@ -21,10 +21,12 @@ sudo apt-get install build-essential libz-dev zlib1g-dev
 
 # build
 cd ~/repo/dda/k8s-mastodon-bot
-mkdir -p target/graalvm
 lein uberjar
+mkdir -p target/graalvm
 lein native
 
 # execute
-./target/graalvm/k8s-mastodon-bot src/main/resources/config.edn src/main/resources/auth.edn 
+./target/graalvm/k8s-mastodon-bot -h
+./target/graalvm/k8s-mastodon-bot src/test/resources/valid-config.edn src/test/resources/valid-auth.edn 
+./target/graalvm/k8s-mastodon-bot src/test/resources/invalid-config.edn src/test/resources/invalid-auth.edn
 ```

@@ -39,6 +39,6 @@
                       "--report-unsupported-elements-at-runtime"
                       "--initialize-at-build-time"
                       "-jar" "target/uberjar/k8s-mastodon-bot-standalone.jar"
-                      "-H:ResourceConfigurationFiles=resource-config.json"
+                      "-H:ResourceConfigurationFiles=graalvm-resource-config.json"
                       "-H:Log=registerResource"
                       "-H:Name=target/graalvm/${:name}"]})
