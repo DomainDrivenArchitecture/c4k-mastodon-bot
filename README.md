@@ -5,7 +5,7 @@
 
 ## Purpose
 
-k8s-mastodon-bot generates a k8s cron-job for your mastodon-bot.
+k8s-mastodon-bot generates a k8s cron-job for your mastodon-bot. All inputs are validated, generaterd yaml will be wellformed, indenet and escaped.
 
 ## Try out
 
