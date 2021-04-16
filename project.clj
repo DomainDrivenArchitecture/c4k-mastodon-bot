@@ -26,7 +26,8 @@
                        :main dda.k8s-mastodon-bot.uberjar
                        :uberjar-name "k8s-mastodon-bot-standalone.jar"
                        :dependencies [[org.clojure/tools.cli "1.0.206"]
-                                      [ch.qos.logback/logback-classic "1.3.0-alpha5"]
+                                      [ch.qos.logback/logback-classic "1.3.0-alpha4"
+                                       :exclusions [com.sun.mail/javax.mail]]
                                       [org.slf4j/jcl-over-slf4j "2.0.0-alpha1"]]}}
   :release-tasks [["vcs" "assert-committed"]
                   ["change" "version" "leiningen.release/bump-version" "release"]
