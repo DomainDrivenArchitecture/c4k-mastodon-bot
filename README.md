@@ -1,5 +1,5 @@
 # k8s-mastodon-bot
-[![Clojars Project](https://img.shields.io/clojars/v/dda/k8s-mastodon-bot.svg)](https://clojars.org/dda/k8s-mastodon-bot)
+[![Clojars Project](https://img.shields.io/clojars/v/dda/k8s-mastodon-bot.svg)](https://clojars.org/dda/k8s-mastodon-bot) [![pipeline status](https://gitlab.com/domaindrivenarchitecture/k8s-mastodon-bot/badges/master/pipeline.svg)](https://gitlab.com/domaindrivenarchitecture/k8s-mastodon-bot/-/commits/master) 
 
 [<img src="https://domaindrivenarchitecture.org/img/delta-chat.svg" width=20 alt="DeltaChat"> chat over e-mail](mailto:buero@meissa-gmbh.de?subject=community-chat) | [<img src="https://meissa-gmbh.de/img/community/Mastodon_Logotype.svg" width=20 alt="team@social.meissa-gmbh.de"> team@social.meissa-gmbh.de](https://social.meissa-gmbh.de/@team) | [Website & Blog](https://domaindrivenarchitecture.org)
 
