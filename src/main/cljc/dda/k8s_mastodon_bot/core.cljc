@@ -19,8 +19,10 @@
    ))
 
 (defn generate-deployment []
-  (->
-   (yaml/from-string (yaml/load-resource "deployment.yaml"))))
+  (yaml/from-string (yaml/load-resource "deployment.yaml")))
+
+(defn generate-cron []
+  (yaml/from-string (yaml/load-resource "cron.yaml")))
 
 (defn-spec generate any?
   [my-config string?
@@ -28,4 +30,4 @@
   (cs/join "\n" 
            [(yaml/to-string (generate-config my-config my-auth))
             "---"
-            (yaml/to-string (generate-deployment))]))
+            (yaml/to-string (generate-cron))]))

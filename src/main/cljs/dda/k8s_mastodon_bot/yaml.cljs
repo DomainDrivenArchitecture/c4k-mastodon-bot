@@ -6,11 +6,14 @@
 
 (def config (rc/inline "config.yaml"))
 
+(def cron (rc/inline "cron.yaml"))
+
 (def deployment (rc/inline "deployment.yaml"))
 
 (defn load-resource [resource-name]
   (case resource-name
     "config.yaml" config
+    "cron.yaml" cron
     "deployment.yaml" deployment))
 
 (defn from-string [input]

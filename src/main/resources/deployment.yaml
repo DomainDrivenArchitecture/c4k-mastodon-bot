@@ -23,7 +23,6 @@ spec:
           env:
             - name: MASTODON_BOT_CREDENTIALS
               value: /credentials.edn
-          cmd:
           volumeMounts:
             - name: config-volume
               mountPath: /config.edn
