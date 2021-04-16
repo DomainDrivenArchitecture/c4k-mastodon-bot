@@ -31,6 +31,16 @@ apt update && apt install kubectl
 kubectl completion bash >> /etc/bash_completion.d/kubernetes
 ```
 
+## install kubeval
+
+```
+wget https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz
+tar xf kubeval-linux-amd64.tar.gz
+sudo cp kubeval /usr/local/bin
+
+## remote access to k8s
+```
+
 ## remote access to k8s
 
 ```
@@ -42,4 +52,11 @@ ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@devops.test
 # change in ~/.kube/config 192.168.5.1 -> kubernetes
 
 kubectl get pods
+```
+
+## deploy mastodon-bot
+
+```
+java -jar target/uberjar/k8s-mastodon-bot-standalone.jar myconfig.edn myauth.edn | kubeval -
+java -jar target/uberjar/k8s-mastodon-bot-standalone.jar myconfig.edn myauth.edn | kubectl apply -f -
 ```

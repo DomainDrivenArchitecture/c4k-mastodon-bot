@@ -13,20 +13,24 @@ spec:
       labels:
         app.kubernetes.io/name: k8s-mastodon-bot
     spec:
+      volumes:
+        - name: config-volume
+          configMap:
+            name: mastodon-bot
       containers:
-        - image: mastodon-bot
+        - image: domaindrivenarchitecture/mastodon-bot
           name: mastodon-bot
           env:
             - name: MASTODON_BOT_CREDENTIALS
-              value: /app/credentials.edn
+              value: /credentials.edn
           cmd:
           volumeMounts:
-            - name: mastodon-bot
-              mountPath: /app/config.edn
-              subPath: config.conf
+            - name: config-volume
+              mountPath: /config.edn
+              subPath: config.edn
               readOnly: true
-            - name: mastodon-bot
-              mountPath: /app/credentials.edn
-              subPath: credentials.conf
+            - name: config-volume
+              mountPath: /credentials.edn
+              subPath: credentials.edn
               readOnly: true
       
