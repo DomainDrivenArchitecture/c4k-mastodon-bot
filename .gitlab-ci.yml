@@ -104,11 +104,11 @@ release:
     FRONTEND_URL: "${PACKAGE_REGISTRY_URL}/k8s-mastodon-bot/${$CI_COMMIT_TAG}/k8s-mastodon-bot.js"
   script:
     - apk --no-cache add curl
+    #- |
+    #  curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file target/uberjar/k8s-mastodon-bot-standalone.jar ${UBERJAR_URL}
+    #- |
+    #  curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file target/frontend-build/k8s-mastodon-bot.js ${FRONTEND_URL}
     - |
-      curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file target/uberjar/k8s-mastodon-bot-standalone.jar ${UBERJAR_URL}
-    - |
-      curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file target/frontend-build/k8s-mastodon-bot.js ${FRONTEND_URL}
-    - |
-      release-cli create --name "Release $CI_COMMIT_TAG" --tag-name $CI_COMMIT_TAG \
-        --assets-link "{\"name\":\"k8s-mastodon-bot-standalone.jar\",\"url\":\"${UBERJAR_URL}\"}" \
-        --assets-link "{\"name\":\"k8s-mastodon-bot.js\",\"url\":\"${FRONTEND_URL}\"}"
+      release-cli create --name "Release $CI_COMMIT_TAG" --tag-name $CI_COMMIT_TAG
+    #    --assets-link "{\"name\":\"k8s-mastodon-bot-standalone.jar\",\"url\":\"${UBERJAR_URL}\"}" \
+    #    --assets-link "{\"name\":\"k8s-mastodon-bot.js\",\"url\":\"${FRONTEND_URL}\"}"
