@@ -5,9 +5,10 @@ metadata:
   labels:
     app.kubernetes.io/name: k8s-mastodon-bot
 spec:
-  schedule: "* */10 * * *"
-  successfulJobsHistoryLimit: 0
-  failedJobsHistoryLimit: 0
+  schedule: "* */15 * * *"
+  successfulJobsHistoryLimit: 5
+  failedJobsHistoryLimit: 5
+  concurrencyPolicy: Replace
   jobTemplate:
     spec:
       template:
@@ -32,3 +33,4 @@ spec:
                   subPath: credentials.edn
                   readOnly: true
           restartPolicy: Never
+        
