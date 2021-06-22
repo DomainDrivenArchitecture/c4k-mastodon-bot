@@ -5,7 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/name: k8s-mastodon-bot
 spec:
-  schedule: "* */15 * * *"
+  schedule: "*/15 * * * *"
   successfulJobsHistoryLimit: 5
   failedJobsHistoryLimit: 5
   concurrencyPolicy: Replace
