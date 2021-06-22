@@ -38,6 +38,16 @@ test-clj:
   script:
     - lein test
 
+test-schema:
+  <<: *clj
+  stage: build_and_test
+  script:
+    - lein uberjar
+    - java -jar target/uberjar/k8s-mastodon-bot-standalone.jar valid-config.edn valid-auth.edn | kubectl apply --dry-run=client -f -
+  artifacts:
+    paths:
+      - target/uberjar
+
 report-frontend:
   <<: *cljs
   stage: package
@@ -65,7 +75,6 @@ package-uberjar:
   <<: *clj
   stage: package
   script:
-    - lein uberjar
     - sha256sum target/uberjar/k8s-mastodon-bot-standalone.jar > target/uberjar/k8s-mastodon-bot-standalone.jar.sha256
     - sha512sum target/uberjar/k8s-mastodon-bot-standalone.jar > target/uberjar/k8s-mastodon-bot-standalone.jar.sha512
   artifacts:
