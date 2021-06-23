@@ -1,4 +1,4 @@
-(defproject dda/k8s-mastodon-bot "0.1.5-SNAPSHOT"
+(defproject dda/k8s-mastodon-bot "0.1.5"
   :description "mastodon-bot k8s-installation package"
   :url "https://www.domaindrivenarchitecture.org"
   :license {:name "Apache License, Version 2.0"
