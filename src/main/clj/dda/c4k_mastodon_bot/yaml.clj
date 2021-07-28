@@ -1,4 +1,4 @@
-(ns dda.k8s-mastodon-bot.yaml
+(ns dda.c4k-mastodon-bot.yaml
   (:require
    [clojure.java.io :as io]
    [clj-yaml.core :as yaml]))

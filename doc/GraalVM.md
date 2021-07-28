@@ -20,13 +20,13 @@ sudo ln -s /usr/lib/jvm/graalvm/bin/native-image /usr/local/bin
 sudo apt-get install build-essential libz-dev zlib1g-dev
 
 # build
-cd ~/repo/dda/k8s-mastodon-bot
+cd ~/repo/dda/c4k-mastodon-bot
 lein uberjar
 mkdir -p target/graalvm
 lein native
 
 # execute
-./target/graalvm/k8s-mastodon-bot -h
-./target/graalvm/k8s-mastodon-bot src/test/resources/valid-config.edn src/test/resources/valid-auth.edn 
-./target/graalvm/k8s-mastodon-bot src/test/resources/invalid-config.edn src/test/resources/invalid-auth.edn
+./target/graalvm/c4k-mastodon-bot -h
+./target/graalvm/c4k-mastodon-bot src/test/resources/valid-config.edn src/test/resources/valid-auth.edn 
+./target/graalvm/c4k-mastodon-bot src/test/resources/invalid-config.edn src/test/resources/invalid-auth.edn
 ```

@@ -57,6 +57,6 @@ kubectl get pods
 ## deploy mastodon-bot
 
 ```
-java -jar target/uberjar/k8s-mastodon-bot-standalone.jar myconfig.edn myauth.edn | kubectl apply --dry-run=client -f -
-java -jar target/uberjar/k8s-mastodon-bot-standalone.jar myconfig.edn myauth.edn | kubectl apply -f -
+java -jar target/uberjar/c4k-mastodon-bot-standalone.jar myconfig.edn myauth.edn | kubectl apply --dry-run=client -f -
+java -jar target/uberjar/c4k-mastodon-bot-standalone.jar myconfig.edn myauth.edn | kubectl apply -f -
 ```

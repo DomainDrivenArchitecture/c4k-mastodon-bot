@@ -1,11 +1,11 @@
-(ns dda.k8s-mastodon-bot.core
+(ns dda.c4k-mastodon-bot.core
   (:require
    [clojure.string :as cs]
    [clojure.spec.alpha :as s]
    #?(:clj [orchestra.core :refer [defn-spec]]
       :cljs [orchestra.core :refer-macros [defn-spec]])
    [mastodon-bot.core-domain :as cd]
-   [dda.k8s-mastodon-bot.yaml :as yaml]))
+   [dda.c4k-mastodon-bot.yaml :as yaml]))
 
 (def config? cd/config?)
 

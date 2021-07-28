@@ -1,9 +1,9 @@
-(ns dda.k8s-mastodon-bot.browser
+(ns dda.c4k-mastodon-bot.browser
   (:require
    [clojure.spec.alpha :as s]
    [clojure.tools.reader.edn :as edn]
    [expound.alpha :as expound]
-   [dda.k8s-mastodon-bot.core :as core]))
+   [dda.c4k-mastodon-bot.core :as core]))
 
 (defn print-debug [sth]
   (print "debug " sth)

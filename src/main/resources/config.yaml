@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: mastodon-bot
   labels:
-    app.kubernetes.io/name: k8s-mastodon-bot
+    app.kubernetes.io/name: c4k-mastodon-bot
 data:
   config.edn: |
     some-config-value

@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: mastodon-bot-cron
   labels:
-    app.kubernetes.io/name: k8s-mastodon-bot
+    app.kubernetes.io/name: c4k-mastodon-bot
 spec:
   schedule: "*/15 * * * *"
   successfulJobsHistoryLimit: 1

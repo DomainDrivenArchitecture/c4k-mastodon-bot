@@ -1,4 +1,4 @@
-(ns dda.k8s-mastodon-bot.yaml
+(ns dda.c4k-mastodon-bot.yaml
   (:require 
    ["js-yaml" :as yaml]
    [shadow.resource :as rc]

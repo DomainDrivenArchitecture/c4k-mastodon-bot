@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: k8s-mastodon-bot
+  name: c4k-mastodon-bot
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name: k8s-mastodon-bot
+      app.kubernetes.io/name: c4k-mastodon-bot
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: k8s-mastodon-bot
+        app.kubernetes.io/name: c4k-mastodon-bot
     spec:
       volumes:
         - name: config-volume

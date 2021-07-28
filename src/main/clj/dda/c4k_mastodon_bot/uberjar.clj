@@ -1,16 +1,16 @@
-(ns dda.k8s-mastodon-bot.uberjar
+(ns dda.c4k-mastodon-bot.uberjar
   (:gen-class)
   (:require
    [clojure.spec.alpha :as s]
    [clojure.string :as cs]
    [clojure.tools.reader.edn :as edn]
    [expound.alpha :as expound]
-   [dda.k8s-mastodon-bot.core :as core]))
+   [dda.c4k-mastodon-bot.core :as core]))
 
 (def usage
   "usage:
   
-  k8s-mastodon-bot {your configuraton file} {your authorization file}")
+  c4k-mastodon-bot {your configuraton file} {your authorization file}")
 
 (s/def ::options (s/* #{"-h"}))
 (s/def ::filename (s/and string?

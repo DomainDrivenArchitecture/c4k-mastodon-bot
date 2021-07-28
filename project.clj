@@ -1,5 +1,5 @@
-(defproject dda/k8s-mastodon-bot "0.1.6-SNAPSHOT"
-  :description "mastodon-bot k8s-installation package"
+(defproject dda/c4k-mastodon-bot "0.1.6-SNAPSHOT"
+  :description "mastodon-bot c4k-installation package"
   :url "https://www.domaindrivenarchitecture.org"
   :license {:name "Apache License, Version 2.0"
             :url "https://www.apache.org/licenses/LICENSE-2.0.html"}
@@ -23,8 +23,8 @@
                     :dependencies [[dda/data-test "0.1.1"]]}
              :dev {:plugins [[lein-shell "0.5.0"]]}
              :uberjar {:aot :all
-                       :main dda.k8s-mastodon-bot.uberjar
-                       :uberjar-name "k8s-mastodon-bot-standalone.jar"
+                       :main dda.c4k-mastodon-bot.uberjar
+                       :uberjar-name "c4k-mastodon-bot-standalone.jar"
                        :dependencies [[org.clojure/tools.cli "1.0.206"]
                                       [ch.qos.logback/logback-classic "1.3.0-alpha4"
                                        :exclusions [com.sun.mail/javax.mail]]
@@ -39,7 +39,7 @@
                       "native-image"
                       "--report-unsupported-elements-at-runtime"
                       "--initialize-at-build-time"
-                      "-jar" "target/uberjar/k8s-mastodon-bot-standalone.jar"
+                      "-jar" "target/uberjar/c4k-mastodon-bot-standalone.jar"
                       "-H:ResourceConfigurationFiles=graalvm-resource-config.json"
                       "-H:Log=registerResource"
                       "-H:Name=target/graalvm/${:name}"]})

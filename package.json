@@ -1,24 +1,24 @@
 {
-  "name": "k8s-mastodon-bot",
+  "name": "c4k-mastodon-bot",
   "description": "Generate k8s yaml for a mastodon-bot deployment.",
   "author": "meissa GmbH",
   "version": "0.1.5-SNAPSHOT",
-  "homepage": "https://gitlab.com/domaindrivenarchitecture/k8s-mastodon-bot#readme",
-  "repository": "https://www.npmjs.com/package/k8s-mastodon-bot",
+  "homepage": "https://gitlab.com/domaindrivenarchitecture/c4k-mastodon-bot#readme",
+  "repository": "https://www.npmjs.com/package/c4k-mastodon-bot",
   "license": "APACHE2",
-  "main": "k8s-mastodon-bot.js",
+  "main": "c4k-mastodon-bot.js",
   "bin": {
-    "k8s-mastodon-bot": "./k8s-mastodon-bot.js"
+    "c4k-mastodon-bot": "./c4k-mastodon-bot.js"
   },
   "keywords": [
     "cljs",
     "mastodon-bot",
-    "k8s",
+    "c4k",
     "deplyoment",
     "yaml"
   ],
   "bugs": {
-    "url": "https://gitlab.com/domaindrivenarchitecture/k8s-mastodon-bot/issues"
+    "url": "https://gitlab.com/domaindrivenarchitecture/c4k-mastodon-bot/issues"
   },
   "dependencies": {
     "js-yaml": "^4.0.0"
