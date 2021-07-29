@@ -1,6 +1,6 @@
 {
   "name": "c4k-mastodon-bot",
-  "description": "Generate k8s yaml for a mastodon-bot deployment.",
+  "description": "Generate c4k yaml for a mastodon-bot deployment.",
   "author": "meissa GmbH",
   "version": "0.1.5-SNAPSHOT",
   "homepage": "https://gitlab.com/domaindrivenarchitecture/c4k-mastodon-bot#readme",

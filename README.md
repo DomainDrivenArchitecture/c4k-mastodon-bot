@@ -5,11 +5,11 @@
 
 ## Purpose
 
-c4k-mastodon-bot generates a k8s cron-job for your mastodon-bot. All inputs are validated, generaterd yaml will be wellformed, indenet and escaped.
+c4k-mastodon-bot generates a c4k cron-job for your mastodon-bot. All inputs are validated, generaterd yaml will be wellformed, indenet and escaped.
 
 ## Rational
 
-There are many comparable solutions for creating k8s deployments like helm or kustomize. Why do we need another one?
+There are many comparable solutions for creating c4k deployments like helm or kustomize. Why do we need another one?
 * We like the simplicity of kustomize. Yaml in, yaml out, the ability to lint the result and the option to split large yaml files into objects. But a simple overwriting per environment may not be enough ...
 * We like helm packages. A package encapsulates the setup for an application. On the one hand, but on the other hand we don't like the idea of having to program and debug in a template language. We can program much better in real programming languages.
 

@@ -38,13 +38,13 @@ wget https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-lin
 tar xf kubeval-linux-amd64.tar.gz
 sudo cp kubeval /usr/local/bin
 
-## remote access to k8s
+## remote access to c4k
 ```
 
-## remote access to k8s
+## remote access to c4k
 
 ```
-scp -r root@devops.test.meissa-gmbh.de:/home/k8s/.kube ~/
+scp -r root@devops.test.meissa-gmbh.de:/home/c4k/.kube ~/
 ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@devops.test.meissa-gmbh.de -L 8002:localhost:8002 -L 6443:192.168.5.1:6443
 
 # add in /etc/hosts "127.0.0.1 kubernetes"
