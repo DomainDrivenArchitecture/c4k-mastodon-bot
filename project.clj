@@ -1,4 +1,4 @@
-(defproject dda/c4k-mastodon-bot "0.1.8-SNAPSHOT"
+(defproject dda/c4k-mastodon-bot "0.1.8"
   :description "mastodon-bot c4k-installation package"
   :url "https://www.domaindrivenarchitecture.org"
   :license {:name "Apache License, Version 2.0"
