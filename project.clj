@@ -1,4 +1,4 @@
-(defproject dda/c4k-mastodon-bot "0.1.6-SNAPSHOT"
+(defproject dda/c4k-mastodon-bot "0.1.6"
   :description "mastodon-bot c4k-installation package"
   :url "https://www.domaindrivenarchitecture.org"
   :license {:name "Apache License, Version 2.0"
@@ -16,8 +16,8 @@
   :resource-paths ["src/main/resources"]
   :repositories [["snapshots" :clojars]
                  ["releases" :clojars]]
-  :deploy-repositories [["snapshots" :clojars]
-                        ["releases" :clojars]]
+  :deploy-repositories [["snapshots" {:sign-releases false :url "https://clojars.org/repo"}]
+                        ["releases" {:sign-releases false :url "https://clojars.org/repo"}]]
   :profiles {:test {:test-paths ["src/test/cljc"]
                     :resource-paths ["src/test/resources"]
                     :dependencies [[dda/data-test "0.1.1"]]}
@@ -29,11 +29,11 @@
                                       [ch.qos.logback/logback-classic "1.3.0-alpha4"
                                        :exclusions [com.sun.mail/javax.mail]]
                                       [org.slf4j/jcl-over-slf4j "2.0.0-alpha1"]]}}
-  :release-tasks [["vcs" "assert-committed"]
+  :release-tasks [["test"]
+                  ["vcs" "assert-committed"]
                   ["change" "version" "leiningen.release/bump-version" "release"]
                   ["vcs" "commit"]
                   ["vcs" "tag"]
-                  ["deploy"]
                   ["change" "version" "leiningen.release/bump-version"]]
   :aliases {"native" ["shell"
                       "native-image"
