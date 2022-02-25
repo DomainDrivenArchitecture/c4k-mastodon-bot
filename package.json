@@ -2,7 +2,7 @@
   "name": "c4k-mastodon-bot",
   "description": "Generate c4k yaml for a mastodon-bot deployment.",
   "author": "meissa GmbH",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "homepage": "https://gitlab.com/domaindrivenarchitecture/c4k-mastodon-bot#readme",
   "repository": "https://www.npmjs.com/package/c4k-mastodon-bot",
   "license": "APACHE2",
