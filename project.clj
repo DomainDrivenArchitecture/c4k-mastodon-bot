@@ -1,4 +1,4 @@
-(defproject org.domaindrivenarchitecture/c4k-mastodon-bot "0.1.9"
+(defproject org.domaindrivenarchitecture/c4k-mastodon-bot "0.1.10-SNAPSHOT"
   :description "mastodon-bot c4k-installation package"
   :url "https://www.domaindrivenarchitecture.org"
   :license {:name "Apache License, Version 2.0"
@@ -33,7 +33,7 @@
                   ["vcs" "assert-committed"]
                   ["change" "version" "leiningen.release/bump-version" "release"]
                   ["vcs" "commit"]
-                  ["vcs" "tag"]
+                  ["vcs" "tag" "v" "--no-sign"]
                   ["change" "version" "leiningen.release/bump-version"]]
   :aliases {"native" ["shell"
                       "native-image"
