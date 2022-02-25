@@ -18,13 +18,14 @@ stages:
     - npm install
 
 .clj-uploadjob: &clj
-  image: clojure:lein-2.7.1-alpine
+  image: domaindrivenarchitecture/lein
   cache:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
       - .m2
   before_script:
-    - echo "{:auth {:repository-auth {#\"clojars\" {:username \"${CLOJARS_USER}\" :password \"${CLOJARS_PASSWORD}\" }}}}" > ~/.lein/profiles.clj
+    - mkdir -p /root/.lein
+    - echo "{:auth {:repository-auth {#\"clojars\" {:username \"${CLOJARS_USER}\" :password \"${CLOJARS_TOKEN_DOMAINDRIVENARCHITECTURE}\" }}}}" > ~/.lein/profiles.clj
 
 test-cljs:
   <<: *cljs
