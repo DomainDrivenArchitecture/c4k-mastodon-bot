@@ -3,12 +3,12 @@
   :url "https://www.domaindrivenarchitecture.org"
   :license {:name "Apache License, Version 2.0"
             :url "https://www.apache.org/licenses/LICENSE-2.0.html"}
-  :dependencies [[org.clojure/clojure "1.10.3"]
-                 [org.clojure/tools.reader "1.3.4"]
+  :dependencies [[org.clojure/clojure "1.11.1"]
+                 [org.clojure/tools.reader "1.3.6"]
                  [aero "1.1.6"]
                  [orchestra "2021.01.01-1"]
-                 [expound "0.8.9"]
-                 [clj-commons/clj-yaml "0.7.106"]
+                 [expound "0.9.0"]
+                 [clj-commons/clj-yaml "1.0.26"]
                  [dda/mastodon-bot "1.10.11"]]
   :target-path "target/%s/"
   :source-paths ["src/main/cljc"
@@ -25,10 +25,10 @@
              :uberjar {:aot :all
                        :main dda.c4k-mastodon-bot.uberjar
                        :uberjar-name "c4k-mastodon-bot-standalone.jar"
-                       :dependencies [[org.clojure/tools.cli "1.0.206"]
-                                      [ch.qos.logback/logback-classic "1.3.0-alpha4"
+                       :dependencies [[org.clojure/tools.cli "1.0.214"]
+                                      [ch.qos.logback/logback-classic "1.4.5"
                                        :exclusions [com.sun.mail/javax.mail]]
-                                      [org.slf4j/jcl-over-slf4j "2.0.0-alpha1"]]}}
+                                      [org.slf4j/jcl-over-slf4j "2.0.6"]]}}
   :release-tasks [["test"]
                   ["vcs" "assert-committed"]
                   ["change" "version" "leiningen.release/bump-version" "release"]
