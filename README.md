@@ -32,6 +32,16 @@ You will also be able to try out on cli:
 target/graalvm/c4k-mastodon-bot src/test/resources/valid-config.edn src/test/resources/valid-auth.edn | kubeval -
 target/graalvm/c4k-mastodon-bot src/test/resources/valid-config.edn src/test/resources/valid-auth.edn | kubectl apply -f -
 ```
+## Development & mirrors
+
+Development happens at: https://repo.prod.meissa.de/meissa/c4k-mastodon-bot
+
+Mirrors are:
+
+* https://gitlab.com/domaindrivenarchitecture/c4k-mastodon-bot (issues and PR, CI)
+* https://github.com/DomainDrivenArchitecture/c4k-mastodon-bot
+
+For more details about our repository model see: https://repo.prod.meissa.de/meissa/federate-your-repos
 
 ## License
 
