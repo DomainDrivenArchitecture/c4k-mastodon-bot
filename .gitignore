@@ -24,3 +24,6 @@ public/js/
 myauth.edn
 myconfig.edn
 origconfig.edn
+
+.lsp/
+.clj-kondo/
